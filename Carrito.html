@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi carrito</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Carrito - Atelier</title>
+<style>
   body {
     background: #070505;
     color: white;
@@ -89,39 +89,23 @@
     border-radius: 10px;
     font-weight: bold;
   }
-  </style>
+</style>
 </head>
-
 <body>
 
-<!-- 🔹 TÍTULO + ICONO -->
 <h2>
-
-  <!-- 🔹 LOGO QUE TE MANDA A LA PÁGINA PRINCIPAL -->
   <a href="index.html" class="logo-link">
-   <img src="Logo Atelier.jpg"
-     alt="logo"
-     class="logo"
-     style="margin-right:15px;">
-
+    <img src="Logo Atelier.jpg" alt="logo" class="logo" style="margin-right:15px;">
   </a>
-
   Mi Carrito
-
-  <!-- 🔹 ICONO DEL CARRITO -->
-  <a class="carrito-icono" href="index.html">
-    <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png">
-  </a>
-
 </h2>
 
-<section class="productos" id="carritoPagina"> </section>
+<section class="productos" id="carritoPagina"></section>
 
 <div class="totalBox">
   Total: <span id="totalCarrito">$0 MXN</span>
 </div>
 
-<!-- 🔹 BOTÓN REALIZAR PEDIDO -->
 <button id="btnPedido" onclick="realizarPedido()">Realizar pedido</button>
 
 <script>
@@ -134,13 +118,16 @@
     let total = 0;
 
     carrito.forEach((prod, i) => {
-      total += prod.precio;
+      // Asegurarse que el precio sea número
+      let precioNum = parseFloat(prod.precio) || 0;
+      total += precioNum;
 
       cont.innerHTML += `
         <div class="item">
-          <img src="${prod.img}">
+          <img src="${prod.img}" alt="${prod.nombre}">
           <div class="info">
             <h3>${prod.nombre}</h3>
+            <p><strong>Talla:</strong> ${prod.talla || "No seleccionada"}</p>
             <p>$${prod.precio} MXN</p>
             <button onclick="eliminar(${i})">Eliminar</button>
           </div>
@@ -157,7 +144,6 @@
     mostrarCarritoPagina();
   }
 
-  /* 🔹 FUNCIÓN REALIZAR PEDIDO POR WHATSAPP */
   function realizarPedido() {
     if (carrito.length === 0) {
       alert("Tu carrito está vacío");
@@ -167,12 +153,12 @@
     let msg = "Hola, quiero realizar este pedido:\n\n";
 
     carrito.forEach(p => {
-      msg += `• ${p.nombre} - $${p.precio} MXN\n`;
+      msg += `• ${p.nombre} | Talla: ${p.talla || "No seleccionada"} | $${p.precio} MXN\n`;
     });
 
     msg += `\nTotal: ${document.getElementById("totalCarrito").innerText}`;
 
-    const tel = "5548813665"; // <<<<<< 🔥 AQUI PONES TU NÚMERO
+    const tel = "5548813665"; // Tu número
     const url = "https://wa.me/" + tel + "?text=" + encodeURIComponent(msg);
 
     window.open(url, "_blank");
@@ -183,4 +169,3 @@
 
 </body>
 </html>
-
