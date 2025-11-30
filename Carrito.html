@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mi Carrito - Atelier</title>
+
+<!-- Font Awesome para el icono del carrito -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
   body {
     background: #070505;
@@ -12,6 +16,8 @@
     margin: 0;
     padding: 0;
   }
+
+  /* LOGO */
   .logo {
     height: 95px;
     width: auto;
@@ -25,7 +31,9 @@
     transform: scale(1.05);
     box-shadow: 0 0 25px rgba(212,175,55,0.9);
   }
-  h2 {
+
+  /* TÍTULO CON CARRITO */
+  h2.carrito-titulo {
     font-size: 36px;
     padding: 30px;
     border-left: 5px solid #cfa009;
@@ -33,13 +41,31 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    font-weight: 700;
   }
+
+  /* Ícono del carrito junto al título */
+  .carrito-inline {
+    color: #d4af37;
+    font-size: 38px;
+    margin-left: 10px;
+    margin-top: 5px;
+    transition: .3s ease;
+    cursor: pointer;
+  }
+  .carrito-inline:hover {
+    transform: scale(1.15);
+    color: #f0c75e;
+  }
+
+  /* CUADRÍCULA DE PRODUCTOS */
   .productos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
     gap: 30px;
     padding: 20px 60px 50px;
   }
+
   .item {
     background: #000;
     border-radius: 12px;
@@ -52,6 +78,7 @@
     height: 240px;
     object-fit: cover;
   }
+
   .info {
     padding: 15px;
     text-align: center;
@@ -60,10 +87,11 @@
     margin-bottom: 5px;
     font-size: 20px;
   }
-  .info p { 
-    color: #cfa009; 
-    font-size: 18px; 
+  .info p {
+    color: #cfa009;
+    font-size: 18px;
   }
+
   button {
     background: #cfa009;
     border: none;
@@ -75,11 +103,14 @@
     font-weight: 600;
     font-size: 16px;
   }
+
+  /* TOTAL */
   .totalBox {
     padding: 30px 60px;
     font-size: 28px;
     font-weight: 700;
   }
+
   #btnPedido {
     margin: 20px auto;
     display: block;
@@ -93,23 +124,28 @@
 </head>
 <body>
 
-<h2>
+<!-- Título + Logo + Carrito alineado EXACTO como en la captura -->
+<h2 class="carrito-titulo">
   <a href="index.html" class="logo-link">
-    <img src="Logo Atelier.jpg" alt="logo" class="logo" style="margin-right:15px;">
+    <img src="Logo Atelier.jpg" alt="logo" class="logo">
   </a>
   Mi Carrito
+  <i class="fas fa-shopping-cart carrito-inline"></i>
 </h2>
 
+<!-- Contenedor del carrito -->
 <section class="productos" id="carritoPagina"></section>
 
+<!-- Total -->
 <div class="totalBox">
   Total: <span id="totalCarrito">$0 MXN</span>
 </div>
 
+<!-- Botón de pedido -->
 <button id="btnPedido" onclick="realizarPedido()">Realizar pedido</button>
 
 <script>
-  // Cargar carrito desde localStorage
+  /* Cargar el carrito */
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
   function mostrarCarritoPagina() {
@@ -118,7 +154,6 @@
     let total = 0;
 
     carrito.forEach((prod, i) => {
-      // Asegurarse que el precio sea número
       let precioNum = parseFloat(prod.precio) || 0;
       total += precioNum;
 
@@ -158,7 +193,7 @@
 
     msg += `\nTotal: ${document.getElementById("totalCarrito").innerText}`;
 
-    const tel = "5548813665"; // Tu número
+    const tel = "5548813665";
     const url = "https://wa.me/" + tel + "?text=" + encodeURIComponent(msg);
 
     window.open(url, "_blank");
