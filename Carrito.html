@@ -9,117 +9,131 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-  body {
-    background: #070505;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+ body {
+  background: #ffffff;  /* ⬅ Fondo blanco */
+  color: #111;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-  /* LOGO */
-  .logo {
-    height: 95px;
-    width: auto;
-    padding: 8px;
-    border: 3px solid #d4af37;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(212,175,55,0.7);
-    transition: .3s ease-in-out;
-  }
-  .logo:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(212,175,55,0.9);
-  }
+/* LOGO (SIN CAMBIOS) */
+.logo {
+  height: 95px;
+  width: auto;
+  padding: 8px;
+  border: 3px solid #d4af37;   /* dorado */
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(212,175,55,0.7);
+  transition: .3s ease-in-out;
+}
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(212,175,55,0.9);
+}
 
-  /* TÍTULO CON CARRITO */
-  h2.carrito-titulo {
-    font-size: 36px;
-    padding: 30px;
-    border-left: 5px solid #cfa009;
-    margin-left: 40px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-weight: 700;
-  }
+/* TÍTULO CON CARRITO (DORADO SE CONSERVA) */
+h2.carrito-titulo {
+  font-size: 36px;
+  padding: 30px;
+  border-left: 5px solid #cfa009;
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 700;
+  color: #111;
+}
 
-  /* Ícono del carrito junto al título */
-  .carrito-inline {
-    color: #d4af37;
-    font-size: 38px;
-    margin-left: 10px;
-    margin-top: 5px;
-    transition: .3s ease;
-    cursor: pointer;
-  }
-  .carrito-inline:hover {
-    transform: scale(1.15);
-    color: #f0c75e;
-  }
+/* Ícono del carrito */
+.carrito-inline {
+  color: #d4af37;
+  font-size: 38px;
+  margin-left: 10px;
+  margin-top: 5px;
+  transition: .3s ease;
+  cursor: pointer;
+}
+.carrito-inline:hover {
+  transform: scale(1.15);
+  color: #f0c75e;
+}
 
-  /* CUADRÍCULA DE PRODUCTOS */
-  .productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap: 30px;
-    padding: 20px 60px 50px;
-  }
+/* CUADRÍCULA DE PRODUCTOS */
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 30px;
+  padding: 20px 60px 50px;
+}
 
-  .item {
-    background: #000;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-    overflow: hidden;
-    transition: .3s;
-  }
-  .item img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-  }
+.item {
+  background: #000;   /* Tarjetas siguen negras */
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  overflow: hidden;
+  transition: .3s;
+}
 
-  .info {
-    padding: 15px;
-    text-align: center;
-  }
-  .info h3 {
-    margin-bottom: 5px;
-    font-size: 20px;
-  }
-  .info p {
-    color: #cfa009;
-    font-size: 18px;
-  }
+.item img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
 
-  button {
-    background: #cfa009;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
-    font-weight: 600;
-    font-size: 16px;
-  }
+.info {
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
 
-  /* TOTAL */
-  .totalBox {
-    padding: 30px 60px;
-    font-size: 28px;
-    font-weight: 700;
-  }
+.info h3 {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
 
-  #btnPedido {
-    margin: 20px auto;
-    display: block;
-    background: #25d366;
-    width: 70%;
-    font-size: 20px;
-    border-radius: 10px;
-    font-weight: bold;
-  }
+.info p {
+  color: #cfa009; /* dorado */
+  font-size: 18px;
+}
+
+/* BOTÓN PRODUCTO */
+button {
+  background: #cfa009;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* TOTAL */
+.totalBox {
+  padding: 30px 60px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* BOTÓN HACER PEDIDO */
+#btnPedido {
+  margin: 20px auto;
+  display: block;
+  background: #25d366;
+  width: 70%;
+  font-size: 20px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* ⬇ SI TIENES UN HEADER SE MANTIENE NEGRO */
+header {
+  background: #000; /* ENCABEZADO NEGRO */
+}
+
 </style>
 </head>
 <body>
