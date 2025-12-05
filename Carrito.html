@@ -9,20 +9,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
- body {
-  background: #ffffff;  /* ⬅ Fondo blanco */
+ 
+  body {
+  background: #ffffff;
   color: #111;
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
 }
 
-/* LOGO (SIN CAMBIOS) */
+/* HEADER NEGRO COMPLETO */
+header {
+  background: #000;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* LOGO */
 .logo {
   height: 95px;
   width: auto;
   padding: 8px;
-  border: 3px solid #d4af37;   /* dorado */
+  border: 3px solid rgba(212,175,55,0.5);
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(212,175,55,0.7);
   transition: .3s ease-in-out;
@@ -32,25 +42,22 @@
   box-shadow: 0 0 25px rgba(212,175,55,0.9);
 }
 
-/* TÍTULO CON CARRITO (DORADO SE CONSERVA) */
-h2.carrito-titulo {
+/* TÍTULO DEL CARRITO */
+header h2 {
   font-size: 36px;
-  padding: 30px;
-  border-left: 5px solid #cfa009;
-  margin-left: 40px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 15px;
-  font-weight: 700;
-  color: #111;
+  color: white; /* Texto blanco para contrastar */
+  margin: 0;
 }
 
-/* Ícono del carrito */
+/* Ícono del carrito DORADO */
 .carrito-inline {
   color: #d4af37;
   font-size: 38px;
   margin-left: 10px;
-  margin-top: 5px;
   transition: .3s ease;
   cursor: pointer;
 }
@@ -68,7 +75,7 @@ h2.carrito-titulo {
 }
 
 .item {
-  background: #fdfcfc;   /* Tarjetas siguen negras */
+  background: #fdfcfc;
   border-radius: 12px;
   box-shadow: 0 4px 18px rgba(12, 12, 12, 0.25);
   overflow: hidden;
@@ -93,11 +100,10 @@ h2.carrito-titulo {
 }
 
 .info p {
-  color: #000000; /* dorado */
   font-size: 18px;
 }
 
-/* BOTÓN PRODUCTO */
+/* BOTONES */
 button {
   background: #0e0e0d;
   border: none;
@@ -118,7 +124,7 @@ button {
   color: #111;
 }
 
-/* BOTÓN HACER PEDIDO */
+/* BOTÓN WHATSAPP */
 #btnPedido {
   margin: 20px auto;
   display: block;
@@ -127,11 +133,6 @@ button {
   font-size: 20px;
   border-radius: 10px;
   font-weight: bold;
-}
-
-/* ⬇ SI TIENES UN HEADER SE MANTIENE NEGRO */
-header {
-  background: #000; /* ENCABEZADO NEGRO */
 }
 
 </style>
