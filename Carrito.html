@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
- 
   body {
   background: #ffffff;
   color: #111;
@@ -134,33 +133,36 @@ button {
   border-radius: 10px;
   font-weight: bold;
 }
-
 </style>
 </head>
 <body>
 
-<!-- Título + Logo + Carrito alineado EXACTO como en la captura -->
-<h2 class="carrito-titulo">
+<!-- HEADER NEGRO -->
+
+
+<header>
   <a href="index.html" class="logo-link">
     <img src="Logo Atelier.jpg" alt="logo" class="logo">
   </a>
-  Mi Carrito
-  <i class="fas fa-shopping-cart carrito-inline"></i>
-</h2>
 
-<!-- Contenedor del carrito -->
+  <h2>
+    <span class="linea-dorada"></span>
+    Mi Carrito
+    <i class="fas fa-shopping-cart carrito-inline"></i>
+  </h2>
+</header>
+
+
+<!-- CONTENIDO DEL CARRITO -->
 <section class="productos" id="carritoPagina"></section>
 
-<!-- Total -->
 <div class="totalBox">
   Total: <span id="totalCarrito">$0 MXN</span>
 </div>
 
-<!-- Botón de pedido -->
 <button id="btnPedido" onclick="realizarPedido()">Realizar pedido</button>
 
 <script>
-  /* Cargar el carrito */
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
   function mostrarCarritoPagina() {
